@@ -1,46 +1,30 @@
-#define PY_SSIZE_T_CLEAN
-#include <stdio.h>
-#include <Python.h>
-#include <listobject.h>
-#include <object.h>
+import ctypes
 
-/**
- * print_python_list_info - Print basic info about Python lists.
- * @p: PyObject.
- * Return: nothing.
- */
+lib = ctypes.CDLL('./libPyList.so')
 
-void print_python_list_info(PyObject *p)
-{
-    Py_ssize_t size, i;
-    size = PyList_GET_SIZE(p);
+lib.print_python_list_info.argtypes = [ctypes.py_object]
 
-    printf("[*] Size of the Python List = %ld\n", size);
-    printf("[*] Allocated = %ld\n", ((PyListObject *)p)->allocated);
+l = ['hello', 'World']
+lib.print_python_list_info(l)
 
-    for (i = 0; i < size; i++)
-    {
-        PyObject *item = PyList_GET_ITEM(p, i);
-        printf("Element %ld: %s\n", i, Py_TYPE(item)->tp_name);
-    }
-}
+del l[1]
+lib.print_python_list_info(l)
 
-int main(void)
-{
-    Py_Initialize();
+l = l + [4, 5, 6.0, (9, 8), [9, 8, 1024], "My string"]
+lib.print_python_list_info(l)
 
-    PyObject *pyList = PyList_New(5);
-    PyList_SetItem(pyList, 0, PyLong_FromLong(10));
-    PyList_SetItem(pyList, 1, PyFloat_FromDouble(3.14));
-    PyList_SetItem(pyList, 2, PyUnicode_DecodeUTF8("Hello", 5, "strict"));
-    PyList_SetItem(pyList, 3, PyBool_FromLong(1));
-    PyList_SetItem(pyList, 4, PyTuple_Pack(2, PyLong_FromLong(1), PyLong_FromLong(2)));
+l = []
+lib.print_python_list_info(l)
 
-    print_python_list_info(pyList);
+l.append(0)
+lib.print_python_list_info(l)
 
-    Py_DECREF(pyList);
+l.append(1)
+l.append(2)
+l.append(3)
+l.append(4)
+lib.print_python_list_info(l)
 
-    Py_Finalize();
+l.pop()
+lib.print_python_list_info(l)
 
-    return 0;
-}

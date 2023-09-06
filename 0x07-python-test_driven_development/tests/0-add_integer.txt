@@ -1,0 +1,44 @@
+# 0-add_integer.py Documentation
+
+## Introduction
+
+The `0-add_integer.py` module defines the `add_integer` function, which is designed for performing integer addition in Python. This document provides a detailed guide on how to use the module, including usage examples and error handling.
+
+## Function Signature
+
+The `add_integer` function has the following signature:
+```python
+add_integer(a, b=98)
+
+result = add_integer(2, 3)  # result will be 5
+
+result = add_integer(2.0, 3.0)  # result will be 5
+
+result = add_integer(2)  # result will be 100 (2 + 98)
+
+# Non-integer as the first argument
+add_integer("hello", 3)  # Raises TypeError: a must be an integer
+
+# Non-integer as the second argument
+add_integer(2, "hello")  # Raises TypeError: b must be an integer
+
+# None as the first argument
+add_integer(None)  # Raises TypeError: a must be an integer
+
+# None as the second argument
+add_integer(2.3, None)  # Raises TypeError: b must be an integer
+
+# Both arguments are non-numeric
+add_integer("hello", "there")  # Raises TypeError: a must be an integer
+
+# Infinity as an argument
+add_integer(float('inf'))  # Raises OverflowError: cannot convert float infinity to integer
+add_integer(2, float('inf'))  # Raises OverflowError: cannot convert float infinity to integer
+
+# NaN as an argument
+add_integer(float('nan'))  # Raises ValueError: cannot convert float NaN to integer
+add_integer(2, float('nan'))  # Raises ValueError: cannot convert float NaN to integer
+
+
+This documentation format provides a structured and informative guide for using the `add_integer` function, including detailed explanations and examples for both valid and error scenarios.
+

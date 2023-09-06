@@ -1,0 +1,29 @@
+# `say_my_name` Function Documentation
+
+## Introduction
+
+The `say_my_name` function is designed to create a message that says a person's name based on the provided first name and last name (optional). This document provides usage instructions and details on handling different scenarios and error cases.
+
+## Function Signature
+
+```python
+say_my_name(first_name, last_name="")
+
+say_my_name("Max")
+# Output: My name is Max
+
+say_my_name(True)
+# Raises TypeError: first_name must be a string
+
+say_my_name()
+# Raises TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+
+say_my_name("Max", 2795)
+# Raises TypeError: last_name must be a string
+
+say_my_name(None)
+# Raises TypeError: first_name must be a string
+
+
+This documentation provides clear instructions on using the `say_my_name` function and covers various error cases with informative error messages.
+

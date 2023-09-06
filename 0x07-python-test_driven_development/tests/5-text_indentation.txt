@@ -1,0 +1,60 @@
+# `text_indentation` Function Documentation
+
+## Introduction
+
+The `text_indentation` function is designed to format text by adding a newline character before each occurrence of specific punctuation marks (".", "?", ":"). This document provides usage instructions and details on handling different scenarios and error cases.
+
+## Function Signature
+
+```python
+text_indentation(text)
+
+text_indentation(".")
+# Output:
+# <BLANKLINE>
+
+text_indentation("?")
+# Output:
+# <BLANKLINE>
+
+text_indentation(":")
+# Output:
+# <BLANKLINE>
+
+text_indentation(":a:")
+# Output:
+# <BLANKLINE>
+# a
+# <BLANKLINE>
+
+text_indentation(".Holberton:School?")
+# Output:
+# <BLANKLINE>
+# Holberton
+# <BLANKLINE>
+# School
+# <BLANKLINE>
+
+If text is not a string:
+text_indentation()
+# Raises TypeError: text must be a string
+
+If text is None:
+text_indentation(None)
+# Raises TypeError: text must be a string
+
+If text is a boolean:
+text_indentation(True)
+# Raises TypeError: text must be a string
+
+If text is a single character:
+text_indentation('0')
+# Raises TypeError: text must be a string
+
+If text is an integer:
+text_indentation(1024)
+# Raises TypeError: text must be a string
+
+
+This documentation provides clear instructions on using the `text_indentation` function and covers various error cases with informative error messages.
+

@@ -1,0 +1,54 @@
+# `print_square` Function Documentation
+
+## Introduction
+
+The `print_square` function is designed to print a square of a specified size using the "#" character. This document provides usage instructions and details on handling different scenarios and error cases.
+
+## Function Signature
+
+```python
+print_square(size)
+
+print_square(0)
+# Output: (No output, as size is 0)
+
+print_square(1)
+# Output:
+# #
+
+print_square(2)
+# Output:
+# ##
+# ##
+
+print_square(10)
+# Output:
+# ##########
+# ##########
+# ##########
+# ##########
+# ##########
+# ##########
+# ##########
+# ##########
+# ##########
+# ##########
+
+print_square(True)
+# Raises TypeError: size must be an integer
+
+print_square("2795")
+# Raises TypeError: size must be an integer
+
+print_square()
+# Raises TypeError: print_square() missing 1 required positional argument: 'size'
+
+print_square(-2795)
+# Raises ValueError: size must be >= 0
+
+print_square(-98)
+# Raises ValueError: size must be >= 0
+
+
+This documentation provides clear instructions on using the `print_square` function and covers various error cases with informative error messages.
+

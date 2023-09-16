@@ -1,5 +1,4 @@
-0x0C. Python - Almost a circle
-Python
+Almost a circle
 
 
 args and kwargs
